@@ -1,0 +1,9 @@
+<div class="contentHeader">
+    <div class="headerLabel">
+        <h2>{{ headerTitle }}</h2>
+    </div>
+
+    <div *ngIf="hasSearch" class="searchContainer">
+        <input type="text" [(ngModel)]="searchText" (ngModelChange)="emitSearchText.emit(searchText)" placeholder="Search..." />
+    </div>
+</div>

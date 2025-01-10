@@ -1,0 +1,11 @@
+@import '../../../../theme/mixins.scss';
+
+div.contentHeader {
+    @extend %centerElementVertical;
+    justify-content: space-between;
+
+    div.searchContainer > input {
+        height: 40px;
+        width: 200px
+    }
+}

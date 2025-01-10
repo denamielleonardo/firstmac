@@ -1,0 +1,32 @@
+<div class="container">
+    <content-header 
+        [searchText]="searchText" 
+        [hasSearch]="true" 
+        [headerTitle]="'Products'" 
+        (emitSearchText)="this.searchText = $event">
+    </content-header>
+
+    <div class="productContainer">
+        <div class="product">
+            <div class="name">Name</div>
+            <div class="price" (click)="sortPriceOrder = sortPriceOrder === 'asc' ? 'desc' : 'asc'">
+                <img src="./assets/imgs/sort.png">&nbsp;Price
+            </div>
+        </div>
+
+        <div *ngIf="(products | searchFilter:searchText:['name']).length === 0" class="noResults">
+            No products found.
+        </div>
+
+        <div class="product" (click)="navigateToProductDetail(product.id)" *ngFor="let product of (products | searchFilter:searchText:['name']) | sortProductPrice:sortPriceOrder">
+            <div class="name">{{ product?.name }}</div>
+            <div class="price">
+                <span class="discountedPrice" *ngIf="product.discount > 0">
+                    ${{ product.price | discountedPrice: product.discount }}
+                </span>
+                  
+                <span [class.discounted]="product.discount > 0">${{ product.price }}</span>
+            </div>
+        </div>
+    </div>
+</div>

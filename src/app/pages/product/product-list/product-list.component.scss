@@ -1,0 +1,74 @@
+@import '../../../../theme/mixins.scss';
+
+div.container {
+    div.productContainer {
+        border: 1px solid #eee;
+
+        div.product {
+            @extend %centerElementVertical;
+            height: 50px;
+            padding: 0 8px;
+
+            div.name {
+                @extend %centerElementVertical;
+                flex: 2;
+                border-right: 1px solid #eee;
+                height: 100%;
+            }
+
+            div.price {
+                @extend %centerElementVertical;
+                flex: 1;
+                height: 100%;
+                padding-left: 8px;
+
+                span.discountedPrice {
+                    color: red;
+                    font-weight: bold;
+                }
+
+                span.discounted {
+                    margin-left: 4px;
+                    font-size: 12px;
+                    text-decoration: line-through;
+                }
+
+                img {
+                    height: 12px;
+                    width: 12px;
+                }
+            }
+        }
+
+        div.product:hover {
+            background-color: #eee;
+            cursor: pointer;
+        }
+
+        div.product:not(:last-child) {
+            border-bottom: 1px solid #eee;
+        }
+
+        div.product:nth-child(1) {
+            background-color: #e8e8e8;
+            font-weight: bold;
+        }
+
+        div.product:hover:nth-child(1) {
+            cursor: revert;
+        }
+
+        div.product:nth-child(1) > div.price:hover {
+            cursor: pointer;
+        }
+
+        div.noResults {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            font-style: italic;
+            color: #5d5d5d;
+        }
+    }
+}
