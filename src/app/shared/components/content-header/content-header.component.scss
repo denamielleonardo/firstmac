@@ -4,6 +4,21 @@ div.contentHeader {
     @extend %centerElementVertical;
     justify-content: space-between;
 
+    div.headerLabel {
+        display: flex;
+        align-items: center;
+
+        span.back {
+            margin-right: 12px;
+            border: 1px solid #eee;
+            padding: 4px 8px;
+        }
+
+        span.back:hover {
+            cursor: pointer;
+        }
+    }
+
     div.searchContainer > input {
         height: 40px;
         width: 200px

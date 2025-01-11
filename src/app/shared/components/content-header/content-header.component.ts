@@ -9,8 +9,10 @@ export class ContentHeaderComponent {
   @Input() headerTitle: string = '';
   @Input() searchText: string = '';
   @Input() hasSearch: boolean = false;
-
+  @Input() hasBack: boolean = false;
+  
   @Output() emitSearchText: EventEmitter<string> = new EventEmitter<string>();
+  @Output() emitBack: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 }

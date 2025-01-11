@@ -9,6 +9,9 @@ import { IProduct } from '../../model/product/product.interface';
 export class ProductService {
   private products = MockProducts;
 
+  // Mock API endpoint is not provided on the email,
+  // I created a mock json that consists of 10 random products
+  // And turned it into mock api request.
   getProducts(): Observable<IProduct[]> {
     return of(this.products);
   }

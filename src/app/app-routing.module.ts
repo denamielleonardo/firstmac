@@ -1,7 +1,6 @@
 // app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductRoutingModule } from './pages/product/product-routing.module';
 
 const routes: Routes = [
   { path: '', redirectTo: '/product-list', pathMatch: 'full' },
