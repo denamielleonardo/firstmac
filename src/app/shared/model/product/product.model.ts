@@ -5,3 +5,8 @@ export interface IProduct {
     description: string;
     discount: number;
 }
+
+export interface IProductState {
+    products: IProduct[];
+    selectedProduct: IProduct | null;
+}

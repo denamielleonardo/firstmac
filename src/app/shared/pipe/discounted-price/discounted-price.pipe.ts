@@ -5,6 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DiscountedPricePipe implements PipeTransform {
   transform(price: number, discount: number): number {
+    if(!discount) return price;
+
     if (discount > 0) {
       return price - discount;
     }

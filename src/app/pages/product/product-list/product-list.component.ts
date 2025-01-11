@@ -1,37 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IProduct } from 'src/app/shared/model/product/product.interface';
-import { ProductService } from '../../../shared/services/product/product.service';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { IProduct } from 'src/app/shared/model/product/product.model';
+import { loadProducts, selectProduct } from 'src/app/shared/store/product/product.actions';
+import { getProducts } from 'src/app/shared/store/product/product.selectors';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
+
+  private getProductsSubs: Subscription = new Subscription();
 
   searchText: any;
   products: Array<IProduct> = [];
   sortPriceOrder: 'asc' | 'desc' = 'asc'
 
   constructor(
-    private productService: ProductService,
-    private router: Router
-  ) { }
-
-  ngOnInit(): void {
-    this.getProducts();
+    private router: Router,
+    private store: Store
+  ) { 
+    console.log('[ProductListComponent] constructor')
   }
 
-  getProducts() {
-    this.productService.getProducts().subscribe({
-      next: (data) => this.products = data,
-      error: (error) => console.error('Error retrieving products:', error),
-      complete: () => console.log('API request completed.'),
+  ngOnInit(): void {
+    console.log('[ProductListComponent] ngOnInit')
+    this.store.dispatch(loadProducts());
+
+    this.getProductsSubs ? this.getProductsSubs.unsubscribe() : null;
+    this.getProductsSubs = this.store.select(getProducts).subscribe((products) => {
+      this.products = products;
     });
   }
 
+  ngOnDestroy(): void {
+    this.getProductsSubs ? this.getProductsSubs.unsubscribe() : null;
+  }
+
   navigateToProductDetail(productId: number) {
-    this.router.navigate(['/product-list/product-detail']);
+    this.store.dispatch(selectProduct({ productId }));
+    this.router.navigate(['/product-list', productId]);
   }
 }

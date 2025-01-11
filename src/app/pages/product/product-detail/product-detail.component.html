@@ -1,7 +1,4 @@
 <div class="container">
     <content-header [hasBack]="true" [headerTitle]="'Product Detail'" (emitBack)="goBack()"></content-header>
-
-    <div class="productContainer">
-
-    </div>
+    <product-card *ngIf="product" [product]="product!"></product-card>
 </div>
