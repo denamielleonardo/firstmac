@@ -40,6 +40,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   navigateToProductDetail(productId: number) {
     this.store.dispatch(selectProduct({ productId }));
-    this.router.navigate(['/product-list', productId]);
+    this.router.navigate(['/product-list/product-detail']);
   }
 }
