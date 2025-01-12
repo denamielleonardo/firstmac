@@ -1,27 +1,51 @@
-# FirstmacExam
+# Project Setup
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
+## Prerequisites
 
-## Development server
+Before setting up the project, ensure you have the following installed on your system:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- **Angular** version 12.2.4 or higher
+- **Node** version v14.15.0 or higher
 
-## Code scaffolding
+## Repository Setup
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository:
+   git clone https://github.com/denamielleonardo/firstmac.git
 
-## Build
+2. After cloning, switch to the development branch:
+   git checkout development
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Install the required dependencies:
+   npm install
 
-## Running unit tests
+4. Start the development server:
+   ng serve
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Architecture Overview
 
-## Running end-to-end tests
+## **Pipes for Sorting, Calculation, and Searching**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The project utilizes **Angular Pipes** to manage some of the key functionalities such as:
 
-## Further help
+- **Sorting**: A custom pipe is implemented to handle the sorting of product lists based on various criteria like price, name, or discount.
+- **Calculation**: Pipes are used for calculating prices and discounts.
+- **Searching**: Another pipe is used to filter or search through the product list by various attributes like name.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## **State Management with NgRx**
+
+The project uses **NgRx** for state management to handle the global state in the application. The key NgRx packages used include:
+
+- **@ngrx/store**: To manage the app's state in a single store.
+- **@ngrx/effects**: For managing side effects and asynchronous actions (e.g., API calls).
+- **@ngrx/entity**: To simplify handling entities such as products.
+- **@ngrx/router-store**: To sync the router state with the NgRx store.
+
+## **Unit Testing with Jasmine and Karma**
+
+The project utilizes **Jasmine** for writing unit tests and **Karma** as the test runner. The key configurations for testing are:
+
+- **Jasmine**: Used for writing test cases and assertions.
+- **Karma**: Used to run the tests and integrate with various browsers.
+
+To run the unit tests, simply execute:
+ng test
