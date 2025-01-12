@@ -6,7 +6,7 @@ import { ContentHeaderComponent } from './components/content-header/content-head
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { DiscountedPricePipe } from './pipe/discounted-price/discounted-price.pipe';
 import { SearchFilterPipe } from './pipe/search-filter/search-filter.pipe';
-import { SortProductsPricePipe } from './pipe/sort-produce-price/sort-produce-price.pipe';
+import { SortProductsPricePipe } from './pipe/sort-product-price/sort-product-price.pipe';
 
 const MODULES: any[] = [CommonModule, FormsModule, RouterModule];
 const COMPONENTS: any[] = [ContentHeaderComponent, ProductCardComponent];

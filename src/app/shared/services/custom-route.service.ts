@@ -5,7 +5,7 @@ import { ActivatedRouteSnapshot, DetachedRouteHandle, RouteReuseStrategy } from 
 export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   private handlers: { [key: string]: DetachedRouteHandle | null } = {};
 
-   // Add other routes that should be cached here
+  // Add other routes that should be cached here
   private cacheableRoutes: string[] = ['product-list', 'product-detail'];
 
   shouldDetach(route: ActivatedRouteSnapshot): boolean {

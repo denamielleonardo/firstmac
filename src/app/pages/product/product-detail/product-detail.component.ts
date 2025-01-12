@@ -12,8 +12,8 @@ import { getSelectedProduct } from 'src/app/shared/store/product/product.selecto
 })
 export class ProductDetailComponent implements OnInit, OnDestroy {
 
-  private getSelectedProductSubs: Subscription = new Subscription();
-  private routeSubs: Subscription = new Subscription();
+  getSelectedProductSubs: Subscription = new Subscription();
+  routeSubs: Subscription = new Subscription();
   product: IProduct | null = null;
 
   constructor(

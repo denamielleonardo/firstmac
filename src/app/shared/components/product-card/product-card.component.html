@@ -7,11 +7,11 @@
         <div class="productInfo">
             <div class="productName"><p>{{ product?.name }}</p></div>
             <div class="productPrice">
-                <span class="discountedPrice" *ngIf="product!.discount > 0">
-                    ${{ product!.price | discountedPrice: product!.discount }}
+                <span class="discountedPrice" *ngIf="product.discount > 0">
+                    ${{ product.price | discountedPrice: product.discount }}
                 </span>
                   
-                <span [class.discounted]="product!.discount > 0">${{ product!.price }}</span>
+                <span [class.discounted]="product.discount > 0">${{ product.price }}</span>
             </div>
         </div>
 

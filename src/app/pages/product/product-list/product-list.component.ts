@@ -13,7 +13,7 @@ import { getProducts } from 'src/app/shared/store/product/product.selectors';
 })
 export class ProductListComponent implements OnInit, OnDestroy {
 
-  private getProductsSubs: Subscription = new Subscription();
+  getProductsSubs: Subscription = new Subscription();
 
   searchText: any;
   products: Array<IProduct> = [];
@@ -23,11 +23,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
     private router: Router,
     private store: Store
   ) { 
-    console.log('[ProductListComponent] constructor')
   }
 
   ngOnInit(): void {
-    console.log('[ProductListComponent] ngOnInit')
     this.store.dispatch(loadProducts());
 
     this.getProductsSubs ? this.getProductsSubs.unsubscribe() : null;
